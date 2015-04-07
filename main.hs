@@ -14,12 +14,12 @@ foreign import ccall "math.h sin"
 
 type PayloadCode = B.ByteString
 type ElfFile = B.ByteString
-type BackdooredElfFile = B.ByteString
+type PatchedElfFile = B.ByteString
 
 getHeader = B.take $ fromIntegral $ sizeOf (undefined::C'Elf64_External_Ehdr)
 
-backdoorElf :: PayloadCode -> ElfFile -> BackdooredElfFile
-backdoorElf payload elfIn = getHeader elfIn
+patchElf :: PayloadCode -> ElfFile -> PatchedElfFile
+patchElf payload elfIn = getHeader elfIn
 
 
 handler :: IOError -> IO (Maybe B.ByteString)
@@ -49,6 +49,6 @@ main = do
 
 main2 payload = do
   elfIn <- B.getContents
-  B.putStr $ backdoorElf payload elfIn
+  B.putStr $ patchElf payload elfIn
   hPutStrLn stderr $ show $ c_sin 10
   return ()
