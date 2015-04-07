@@ -193,6 +193,8 @@ typedef struct {
 
 /* dynamic section structure */
 
+// These are commented out because they don't work with c2hsc
+
 //typedef struct {
 //  unsigned char	d_tag[4];		/* entry tag value */
 //  union {
