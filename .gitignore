@@ -2,3 +2,4 @@
 ElfTools.hs
 *.o
 main
+test/out.elf
