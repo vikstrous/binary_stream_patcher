@@ -5,7 +5,7 @@ import System.Environment
 import System.IO.Error
 import System.IO
 
-import ElfTools
+import Elf.External
 
 import Foreign
 import Foreign.C.Types
@@ -16,7 +16,7 @@ type PayloadCode = B.ByteString
 type ElfFile = B.ByteString
 type BackdooredElfFile = B.ByteString
 
-getHeader = B.take sizeOfElf64_External_Ehdr
+getHeader = B.take $ sizeOf Elf64_External_Ehdr
 
 backdoorElf :: PayloadCode -> ElfFile -> BackdooredElfFile
 backdoorElf payload elfIn = getHeader elfIn

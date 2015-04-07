@@ -257,7 +257,8 @@ typedef struct {
 
 typedef struct {
   unsigned char		vs_vers[2];
-} ATTRIBUTE_PACKED  Elf_External_Versym;
+} Elf_External_Versym;
+//} ATTRIBUTE_PACKED  Elf_External_Versym;
 
 /* Structure for syminfo section.  */
 typedef struct
