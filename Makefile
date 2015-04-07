@@ -16,6 +16,7 @@ ElfTools.hs:
 
 test: main
 	./main test/payload < test/in.elf > test/out.elf
+	diff test/out.elf test/success.elf
 
 clean:
 	rm -f *.hi *.o ElfTools.hs main test/out.elf

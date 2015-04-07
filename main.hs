@@ -6,6 +6,7 @@ import System.IO.Error
 import System.IO
 
 import Elf.External
+import Unsafe.Coerce
 
 import Foreign
 import Foreign.C.Types
@@ -18,8 +19,11 @@ type PatchedElfFile = B.ByteString
 
 getHeader = B.take $ fromIntegral $ sizeOf (undefined::C'Elf64_External_Ehdr)
 
+patchHeader :: PayloadCode -> ElfFile -> C'Elf64_External_Ehdr
+patchHeader payload elfIn = unsafeCoerce $ B.unpack(getHeader elfIn)
+
 patchElf :: PayloadCode -> ElfFile -> PatchedElfFile
-patchElf payload elfIn = getHeader elfIn
+patchElf payload elfIn = B.pack $ unsafeCoerce $ patchHeader payload elfIn
 
 
 handler :: IOError -> IO (Maybe B.ByteString)
