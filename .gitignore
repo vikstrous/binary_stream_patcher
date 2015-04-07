@@ -1,0 +1,4 @@
+*.hi
+ElfTools.hs
+*.o
+main
