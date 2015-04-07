@@ -193,21 +193,21 @@ typedef struct {
 
 /* dynamic section structure */
 
-typedef struct {
-  unsigned char	d_tag[4];		/* entry tag value */
-  union {
-    unsigned char	d_val[4];
-    unsigned char	d_ptr[4];
-  } d_un;
-} Elf32_External_Dyn;
+//typedef struct {
+//  unsigned char	d_tag[4];		/* entry tag value */
+//  union {
+//    unsigned char	d_val[4];
+//    unsigned char	d_ptr[4];
+//  } d_un;
+//} Elf32_External_Dyn;
 
-typedef struct {
-  unsigned char	d_tag[8];		/* entry tag value */
-  union {
-    unsigned char	d_val[8];
-    unsigned char	d_ptr[8];
-  } d_un;
-} Elf64_External_Dyn;
+//typedef struct {
+//  unsigned char	d_tag[8];		/* entry tag value */
+//  union {
+//    unsigned char	d_val[8];
+//    unsigned char	d_ptr[8];
+//  } d_un;
+//} Elf64_External_Dyn;
 
 /* The version structures are currently size independent.  They are
    named without a 32 or 64.  If that ever changes, these structures

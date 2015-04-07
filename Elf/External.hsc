@@ -242,26 +242,6 @@ import Foreign.Ptr
 #array_field r_addend , CUChar
 #stoptype
 {- typedef struct {
-           unsigned char d_tag[4];
-           union {
-               unsigned char d_val[4]; unsigned char d_ptr[4];
-           } d_un;
-       } Elf32_External_Dyn; -}
-#starttype Elf32_External_Dyn
-#array_field d_tag , CUChar
-#field d_un , 
-#stoptype
-{- typedef struct {
-            unsigned char d_tag[8];
-            union {
-                unsigned char d_val[8]; unsigned char d_ptr[8];
-            } d_un;
-        } Elf64_External_Dyn; -}
-#starttype Elf64_External_Dyn
-#array_field d_tag , CUChar
-#field d_un , 
-#stoptype
-{- typedef struct {
             unsigned char vd_version[2];
             unsigned char vd_flags[2];
             unsigned char vd_ndx[2];

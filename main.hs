@@ -16,7 +16,7 @@ type PayloadCode = B.ByteString
 type ElfFile = B.ByteString
 type BackdooredElfFile = B.ByteString
 
-getHeader = B.take $ sizeOf Elf64_External_Ehdr
+getHeader = B.take $ fromIntegral $ sizeOf C'Elf64_External_Ehdr
 
 backdoorElf :: PayloadCode -> ElfFile -> BackdooredElfFile
 backdoorElf payload elfIn = getHeader elfIn

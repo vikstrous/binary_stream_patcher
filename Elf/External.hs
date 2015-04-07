@@ -1047,74 +1047,6 @@ instance Storable C'Elf64_External_Rela where
 
 {-# LINE 244 "Elf/External.hsc" #-}
 {- typedef struct {
-           unsigned char d_tag[4];
-           union {
-               unsigned char d_val[4]; unsigned char d_ptr[4];
-           } d_un;
-       } Elf32_External_Dyn; -}
-
-{-# LINE 251 "Elf/External.hsc" #-}
-
-{-# LINE 252 "Elf/External.hsc" #-}
-
-{-# LINE 253 "Elf/External.hsc" #-}
-data C'Elf32_External_Dyn = C'Elf32_External_Dyn{
-  c'Elf32_External_Dyn'd_tag :: [CUChar],
-  c'Elf32_External_Dyn'd_un :: 
-} deriving (Eq,Show)
-p'Elf32_External_Dyn'd_tag p = plusPtr p 0
-p'Elf32_External_Dyn'd_tag :: Ptr (C'Elf32_External_Dyn) -> Ptr (CUChar)
-p'Elf32_External_Dyn'd_un p = plusPtr p 4
-p'Elf32_External_Dyn'd_un :: Ptr (C'Elf32_External_Dyn) -> Ptr ()
-instance Storable C'Elf32_External_Dyn where
-  sizeOf _ = 8
-  alignment _ = 1
-  peek p = do
-    v0 <- let s = div 4 $ sizeOf $ (undefined :: CUChar) in peekArray s (plusPtr p 0)
-    v1 <- peekByteOff p 4
-    return $ C'Elf32_External_Dyn v0 v1
-  poke p (C'Elf32_External_Dyn v0 v1) = do
-    let s = div 4 $ sizeOf $ (undefined :: CUChar)
-    pokeArray (plusPtr p 0) (take s v0)
-    pokeByteOff p 4 v1
-    return ()
-
-{-# LINE 254 "Elf/External.hsc" #-}
-{- typedef struct {
-            unsigned char d_tag[8];
-            union {
-                unsigned char d_val[8]; unsigned char d_ptr[8];
-            } d_un;
-        } Elf64_External_Dyn; -}
-
-{-# LINE 261 "Elf/External.hsc" #-}
-
-{-# LINE 262 "Elf/External.hsc" #-}
-
-{-# LINE 263 "Elf/External.hsc" #-}
-data C'Elf64_External_Dyn = C'Elf64_External_Dyn{
-  c'Elf64_External_Dyn'd_tag :: [CUChar],
-  c'Elf64_External_Dyn'd_un :: 
-} deriving (Eq,Show)
-p'Elf64_External_Dyn'd_tag p = plusPtr p 0
-p'Elf64_External_Dyn'd_tag :: Ptr (C'Elf64_External_Dyn) -> Ptr (CUChar)
-p'Elf64_External_Dyn'd_un p = plusPtr p 8
-p'Elf64_External_Dyn'd_un :: Ptr (C'Elf64_External_Dyn) -> Ptr ()
-instance Storable C'Elf64_External_Dyn where
-  sizeOf _ = 16
-  alignment _ = 1
-  peek p = do
-    v0 <- let s = div 8 $ sizeOf $ (undefined :: CUChar) in peekArray s (plusPtr p 0)
-    v1 <- peekByteOff p 8
-    return $ C'Elf64_External_Dyn v0 v1
-  poke p (C'Elf64_External_Dyn v0 v1) = do
-    let s = div 8 $ sizeOf $ (undefined :: CUChar)
-    pokeArray (plusPtr p 0) (take s v0)
-    pokeByteOff p 8 v1
-    return ()
-
-{-# LINE 264 "Elf/External.hsc" #-}
-{- typedef struct {
             unsigned char vd_version[2];
             unsigned char vd_flags[2];
             unsigned char vd_ndx[2];
@@ -1124,21 +1056,21 @@ instance Storable C'Elf64_External_Dyn where
             unsigned char vd_next[4];
         } Elf_External_Verdef; -}
 
-{-# LINE 274 "Elf/External.hsc" #-}
+{-# LINE 254 "Elf/External.hsc" #-}
 
-{-# LINE 275 "Elf/External.hsc" #-}
+{-# LINE 255 "Elf/External.hsc" #-}
 
-{-# LINE 276 "Elf/External.hsc" #-}
+{-# LINE 256 "Elf/External.hsc" #-}
 
-{-# LINE 277 "Elf/External.hsc" #-}
+{-# LINE 257 "Elf/External.hsc" #-}
 
-{-# LINE 278 "Elf/External.hsc" #-}
+{-# LINE 258 "Elf/External.hsc" #-}
 
-{-# LINE 279 "Elf/External.hsc" #-}
+{-# LINE 259 "Elf/External.hsc" #-}
 
-{-# LINE 280 "Elf/External.hsc" #-}
+{-# LINE 260 "Elf/External.hsc" #-}
 
-{-# LINE 281 "Elf/External.hsc" #-}
+{-# LINE 261 "Elf/External.hsc" #-}
 data C'Elf_External_Verdef = C'Elf_External_Verdef{
   c'Elf_External_Verdef'vd_version :: [CUChar],
   c'Elf_External_Verdef'vd_flags :: [CUChar],
@@ -1191,16 +1123,16 @@ instance Storable C'Elf_External_Verdef where
     pokeArray (plusPtr p 16) (take s v6)
     return ()
 
-{-# LINE 282 "Elf/External.hsc" #-}
+{-# LINE 262 "Elf/External.hsc" #-}
 {- typedef struct {
             unsigned char vda_name[4]; unsigned char vda_next[4];
         } Elf_External_Verdaux; -}
 
-{-# LINE 286 "Elf/External.hsc" #-}
+{-# LINE 266 "Elf/External.hsc" #-}
 
-{-# LINE 287 "Elf/External.hsc" #-}
+{-# LINE 267 "Elf/External.hsc" #-}
 
-{-# LINE 288 "Elf/External.hsc" #-}
+{-# LINE 268 "Elf/External.hsc" #-}
 data C'Elf_External_Verdaux = C'Elf_External_Verdaux{
   c'Elf_External_Verdaux'vda_name :: [CUChar],
   c'Elf_External_Verdaux'vda_next :: [CUChar]
@@ -1223,7 +1155,7 @@ instance Storable C'Elf_External_Verdaux where
     pokeArray (plusPtr p 4) (take s v1)
     return ()
 
-{-# LINE 289 "Elf/External.hsc" #-}
+{-# LINE 269 "Elf/External.hsc" #-}
 {- typedef struct {
             unsigned char vn_version[2];
             unsigned char vn_cnt[2];
@@ -1232,17 +1164,17 @@ instance Storable C'Elf_External_Verdaux where
             unsigned char vn_next[4];
         } Elf_External_Verneed; -}
 
-{-# LINE 297 "Elf/External.hsc" #-}
+{-# LINE 277 "Elf/External.hsc" #-}
 
-{-# LINE 298 "Elf/External.hsc" #-}
+{-# LINE 278 "Elf/External.hsc" #-}
 
-{-# LINE 299 "Elf/External.hsc" #-}
+{-# LINE 279 "Elf/External.hsc" #-}
 
-{-# LINE 300 "Elf/External.hsc" #-}
+{-# LINE 280 "Elf/External.hsc" #-}
 
-{-# LINE 301 "Elf/External.hsc" #-}
+{-# LINE 281 "Elf/External.hsc" #-}
 
-{-# LINE 302 "Elf/External.hsc" #-}
+{-# LINE 282 "Elf/External.hsc" #-}
 data C'Elf_External_Verneed = C'Elf_External_Verneed{
   c'Elf_External_Verneed'vn_version :: [CUChar],
   c'Elf_External_Verneed'vn_cnt :: [CUChar],
@@ -1283,7 +1215,7 @@ instance Storable C'Elf_External_Verneed where
     pokeArray (plusPtr p 12) (take s v4)
     return ()
 
-{-# LINE 303 "Elf/External.hsc" #-}
+{-# LINE 283 "Elf/External.hsc" #-}
 {- typedef struct {
             unsigned char vna_hash[4];
             unsigned char vna_flags[2];
@@ -1292,17 +1224,17 @@ instance Storable C'Elf_External_Verneed where
             unsigned char vna_next[4];
         } Elf_External_Vernaux; -}
 
-{-# LINE 311 "Elf/External.hsc" #-}
+{-# LINE 291 "Elf/External.hsc" #-}
 
-{-# LINE 312 "Elf/External.hsc" #-}
+{-# LINE 292 "Elf/External.hsc" #-}
 
-{-# LINE 313 "Elf/External.hsc" #-}
+{-# LINE 293 "Elf/External.hsc" #-}
 
-{-# LINE 314 "Elf/External.hsc" #-}
+{-# LINE 294 "Elf/External.hsc" #-}
 
-{-# LINE 315 "Elf/External.hsc" #-}
+{-# LINE 295 "Elf/External.hsc" #-}
 
-{-# LINE 316 "Elf/External.hsc" #-}
+{-# LINE 296 "Elf/External.hsc" #-}
 data C'Elf_External_Vernaux = C'Elf_External_Vernaux{
   c'Elf_External_Vernaux'vna_hash :: [CUChar],
   c'Elf_External_Vernaux'vna_flags :: [CUChar],
@@ -1343,14 +1275,14 @@ instance Storable C'Elf_External_Vernaux where
     pokeArray (plusPtr p 12) (take s v4)
     return ()
 
-{-# LINE 317 "Elf/External.hsc" #-}
+{-# LINE 297 "Elf/External.hsc" #-}
 {- typedef struct {
             unsigned char vs_vers[2];
         } Elf_External_Versym; -}
 
-{-# LINE 321 "Elf/External.hsc" #-}
+{-# LINE 301 "Elf/External.hsc" #-}
 
-{-# LINE 322 "Elf/External.hsc" #-}
+{-# LINE 302 "Elf/External.hsc" #-}
 data C'Elf_External_Versym = C'Elf_External_Versym{
   c'Elf_External_Versym'vs_vers :: [CUChar]
 } deriving (Eq,Show)
@@ -1367,16 +1299,16 @@ instance Storable C'Elf_External_Versym where
     pokeArray (plusPtr p 0) (take s v0)
     return ()
 
-{-# LINE 323 "Elf/External.hsc" #-}
+{-# LINE 303 "Elf/External.hsc" #-}
 {- typedef struct {
             unsigned char si_boundto[2]; unsigned char si_flags[2];
         } Elf_External_Syminfo; -}
 
-{-# LINE 327 "Elf/External.hsc" #-}
+{-# LINE 307 "Elf/External.hsc" #-}
 
-{-# LINE 328 "Elf/External.hsc" #-}
+{-# LINE 308 "Elf/External.hsc" #-}
 
-{-# LINE 329 "Elf/External.hsc" #-}
+{-# LINE 309 "Elf/External.hsc" #-}
 data C'Elf_External_Syminfo = C'Elf_External_Syminfo{
   c'Elf_External_Syminfo'si_boundto :: [CUChar],
   c'Elf_External_Syminfo'si_flags :: [CUChar]
@@ -1399,16 +1331,16 @@ instance Storable C'Elf_External_Syminfo where
     pokeArray (plusPtr p 2) (take s v1)
     return ()
 
-{-# LINE 330 "Elf/External.hsc" #-}
+{-# LINE 310 "Elf/External.hsc" #-}
 {- typedef struct {
             unsigned char a_type[4]; unsigned char a_val[4];
         } Elf32_External_Auxv; -}
 
-{-# LINE 334 "Elf/External.hsc" #-}
+{-# LINE 314 "Elf/External.hsc" #-}
 
-{-# LINE 335 "Elf/External.hsc" #-}
+{-# LINE 315 "Elf/External.hsc" #-}
 
-{-# LINE 336 "Elf/External.hsc" #-}
+{-# LINE 316 "Elf/External.hsc" #-}
 data C'Elf32_External_Auxv = C'Elf32_External_Auxv{
   c'Elf32_External_Auxv'a_type :: [CUChar],
   c'Elf32_External_Auxv'a_val :: [CUChar]
@@ -1431,16 +1363,16 @@ instance Storable C'Elf32_External_Auxv where
     pokeArray (plusPtr p 4) (take s v1)
     return ()
 
-{-# LINE 337 "Elf/External.hsc" #-}
+{-# LINE 317 "Elf/External.hsc" #-}
 {- typedef struct {
             unsigned char a_type[8]; unsigned char a_val[8];
         } Elf64_External_Auxv; -}
 
-{-# LINE 341 "Elf/External.hsc" #-}
+{-# LINE 321 "Elf/External.hsc" #-}
 
-{-# LINE 342 "Elf/External.hsc" #-}
+{-# LINE 322 "Elf/External.hsc" #-}
 
-{-# LINE 343 "Elf/External.hsc" #-}
+{-# LINE 323 "Elf/External.hsc" #-}
 data C'Elf64_External_Auxv = C'Elf64_External_Auxv{
   c'Elf64_External_Auxv'a_type :: [CUChar],
   c'Elf64_External_Auxv'a_val :: [CUChar]
@@ -1463,4 +1395,4 @@ instance Storable C'Elf64_External_Auxv where
     pokeArray (plusPtr p 8) (take s v1)
     return ()
 
-{-# LINE 344 "Elf/External.hsc" #-}
+{-# LINE 324 "Elf/External.hsc" #-}
